@@ -12,6 +12,9 @@ const BtnWrap = styled.div`
     width : 500px;
     margin : 0 auto;
     margin-bottom : 8px;
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
 `;
 
 const Wrapper = styled.div`
@@ -77,8 +80,6 @@ function BlogMain(props) {
                         navigate("/login");
                     }
                 }/>
-            </BtnWrap>
-            <BtnWrap>
                 <WriteButton
                     title="글 작성 버튼"
                     onClick={

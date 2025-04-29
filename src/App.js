@@ -8,6 +8,8 @@ import PostEditPage from "./mini-pro/post/PostEditPage";
 import LoginPage from "./mini-pro/auth/LoginPage";
 import ProtectedRoute from "./mini-pro/auth/ProtectedRoute";
 import SignupPage from "./mini-pro/auth/SignupPage";
+import TopBar from "./mini-pro/ui/TopBar";
+import WeatherPage from "./mini-pro/weather/WeatherPage";
 
 function App() {
 
@@ -17,7 +19,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Title title={"MINI BLOG WITH REACT"} />
+      <TopBar />
       <Routes>
         <Route path="/login" element={<LoginPage setIsAuthenticated={setIsAuthenticated}/>} />
         <Route path="/signup" element={<SignupPage />} />
@@ -30,6 +32,7 @@ function App() {
           <Route path="/post-write" element={<PostWrite />} />
           <Route path="/postDetail/:postId" element={<PostViewPage />} />
           <Route path="/postEdit/:postId" element={<PostEditPage />} />
+          <Route path="/weather" element={<WeatherPage />} />
         </Route>
         
       </Routes>

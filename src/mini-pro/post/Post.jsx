@@ -67,9 +67,7 @@ function Post(props) {
 
     return (
         <TotalDiv>
-            <PostItem
-                onClick={onClick}
-            >
+            <PostItem onClick={onClick}>
             <Title>
                 {post.postTitle}
             </Title>
