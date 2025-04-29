@@ -1,0 +1,89 @@
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import BackButton from '../ui/BackButton';
+import { useNavigate } from 'react-router-dom';
+import TextInputArea from '../ui/TextInputArea';
+import SbtBtn from '../ui/SbtBtn';
+import axios from 'axios';
+
+const BtnWrap = styled.div`
+    width : 500px;
+    margin : 0 auto;
+`;
+
+const Wrapper = styled.div`
+    width : 500px;
+    margin : 0 auto;
+    text-align : center;
+    padding : 10px;
+    display : flex;
+    flex-direction : column;
+    gap : 16px;
+`;
+
+function PostWrite(props) {
+    
+    const navigate = useNavigate();
+
+    const [ title, setTitle ] = useState("");
+    const [ content, setContent ] = useState("");
+    
+    const titleChange = (event) => {
+        setTitle(event.target.value);
+        event.preventDefault();
+    };
+    const contentChange = (event) => {
+        setContent(event.target.value);
+        event.preventDefault();
+    }
+
+    return (
+        <div>
+            <BtnWrap>
+                <BackButton 
+                    title={"뒤로가기"}
+                    onClick={() => {navigate('/')}}
+                />
+            </BtnWrap>
+            <Wrapper>
+                <label>제목</label>
+                <TextInputArea height={20} value={title} onChange={titleChange} />
+                <label>내용</label>
+                <TextInputArea height={50} value={content} onChange={contentChange}/>
+            </Wrapper>
+            <BtnWrap>
+                <SbtBtn
+                    title={"글 작성"}
+                    onClick={
+                        async (event) => {
+                        if(title === "" || content === "") {alert("빈 칸이 존재합니다.!!!");}
+                        else {
+                            try {
+                                event.preventDefault();
+                                const token = localStorage.getItem("JWTtoken");
+                                // alert(`제목 : ${title} , 내용 : ${content}`);
+                                const response = await axios.post("http://localhost:8080/post/write",
+                                    {
+                                        postTitle : title,
+                                        postContent : content,
+                                    },
+                                    { headers : {
+                                        "Content-Type" : "application/json",
+                                        "Authorization" : `Bearer ${token}`
+                                    }, withCredentials: true },
+                                );
+                                setTitle("");
+                                setContent("");
+                                navigate("/");
+                            } catch(error) {
+                                console.log(error);
+                            }
+                        }
+                    }}
+                />
+            </BtnWrap>
+        </div>
+    )
+}
+
+export default PostWrite

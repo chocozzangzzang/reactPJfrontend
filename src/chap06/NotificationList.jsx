@@ -1,0 +1,67 @@
+import React from "react";
+import Notification from "./Notification";
+
+const reservedNotifications = [
+    {
+        id : 1,
+        message : "안녕하세요. 오늘 일정을 알려드립니다..",
+    },
+    {
+        id : 2,
+        message : "곧 점심 식사 시간입니다.",
+    },
+    {
+        id : 3,
+        message : "이제 곧 미팅이 시작됩니다.",
+    }
+];
+
+var timer;
+
+class NotificationList extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            notifications : [],
+        };
+    }
+
+    componentDidMount() {
+        const { notifications } = this.state;
+        timer = setInterval(() => {
+            if( notifications.length < reservedNotifications.length ) {
+                const index = notifications.length;
+                console.log(`${index} : ${notifications}`);
+                notifications.push(reservedNotifications[index]);
+                this.setState({
+                    notifications : notifications,
+                }); // setState이므로 기존의 컴포넌트들은 UPDATE가 됨
+                console.log(`${index} : ${notifications}`);
+            } else {
+                this.setState({
+                    notifications : [],
+                });
+                clearInterval(timer);
+            }
+        }, 1000);
+    }
+
+    componentWillUnmount() {
+        if(timer) {
+            clearInterval(timer);
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.notifications.map((noti) => {
+                    return <Notification message={noti.message} id={noti.id} key={noti.id}/>;
+                })}
+            </div>
+        );
+    }
+}
+
+export default NotificationList;
