@@ -38,6 +38,7 @@ function MovieList(props) {
             movies.map((movie) => {
                 return (
                     <MoviePoster
+                        key={movie.id}
                         movieId={movie.id}
                         title={movie.title}
                         poster={movie.poster_path}
