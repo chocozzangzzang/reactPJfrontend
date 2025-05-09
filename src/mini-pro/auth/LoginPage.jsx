@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const styles = {
     container: {
-      maxWidth: '500px',
+      width: '500px',
       margin: '100px auto',
       padding: '20px',
       border: '1px solid #ddd',

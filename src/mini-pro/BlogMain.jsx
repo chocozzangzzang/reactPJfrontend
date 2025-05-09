@@ -6,7 +6,6 @@ import WriteButton from './ui/WriteButton';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PostDeleteContext from './post/PostDeleteContext';
-import LoginButton from './ui/LoginButton';
 
 const BtnWrap = styled.div`
     width : 500px;
@@ -73,22 +72,6 @@ function BlogMain(props) {
 
     return (
         <div>
-            <BtnWrap>
-                <LoginButton title="로그아웃" onClick={
-                    () => {
-                        localStorage.removeItem("JWTtoken");
-                        navigate("/login");
-                    }
-                }/>
-                <WriteButton
-                    title="글 작성 버튼"
-                    onClick={
-                    () => {
-                        navigate('/post-write');
-                        }
-                    }
-                />
-            </BtnWrap>
             <Wrapper>
                 <PostDeleteContext.Provider value={deleteIdxFunc}>
                     <PostList 
@@ -96,7 +79,16 @@ function BlogMain(props) {
                         onClickItem={(item) => {navigate(`/postDetail/${item.postId}`)}}
                     />
                 </PostDeleteContext.Provider>
-                
+                <BtnWrap>
+                    <WriteButton
+                        title="글 작성"
+                        onClick={
+                        () => {
+                            navigate('/post-write');
+                            }
+                        }
+                    />
+                </BtnWrap>
             </Wrapper>
         </div>
         

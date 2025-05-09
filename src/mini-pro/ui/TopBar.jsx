@@ -3,9 +3,13 @@ import MoveButton from './MoveButton';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-const TtDiv = styled.div`
+const Wrapper = styled.div`
     width : 500px;
     margin : 0 auto;
+`
+
+const TtDiv = styled.div`
+    width : 100%;
     display : flex;
     flex-direction : row;
     justify-content : space-between;
@@ -16,15 +20,41 @@ const TtDiv = styled.div`
     border-radius : 8px;
 `;
 
+const UserDiv = styled.div`
+    width : 100%;
+    height : 15px;
+    text-align : right;
+`
+
 const TopBar = () => {
     const navigate = useNavigate();
+    const login = localStorage.getItem("JWTtoken");
 
     return (
-        <TtDiv>
-            <MoveButton title="메인" onClick={() => navigate('/')}/>
-            <MoveButton title="날씨화면" onClick={() => navigate('/weather')}/>
-            <MoveButton title="상품목록" onClick={() => alert("상품목록")}/>
-        </TtDiv>
+        <Wrapper>
+            <UserDiv>
+                {
+                    login ?
+                    <h4>User님 환영합니다!</h4>
+                    : <h4></h4>
+                }
+            </UserDiv>
+            <TtDiv> 
+                <MoveButton title="홈" onClick={() => navigate('/')}/>
+                <MoveButton title="날씨" onClick={() => navigate('/weather')}/>
+                <MoveButton title="최신영화" onClick={() => navigate('/movies')}/>
+                {
+                    login ? 
+                    <MoveButton title="로그아웃" onClick={() => {
+                        localStorage.removeItem("JWTtoken");
+                        navigate("/login");}}/> 
+                    : <MoveButton title="로그인" onClick={() => navigate('/login')}/>
+                    
+                }
+                
+            </TtDiv>
+        </Wrapper>
+        
     );
 };
 

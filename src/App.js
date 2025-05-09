@@ -10,6 +10,8 @@ import ProtectedRoute from "./mini-pro/auth/ProtectedRoute";
 import SignupPage from "./mini-pro/auth/SignupPage";
 import TopBar from "./mini-pro/ui/TopBar";
 import WeatherPage from "./mini-pro/weather/WeatherPage";
+import MovieList from "./mini-pro/movie/MovieList";
+import MovieDetail from "./mini-pro/movie/MovieDetail";
 
 function App() {
 
@@ -33,6 +35,8 @@ function App() {
           <Route path="/postDetail/:postId" element={<PostViewPage />} />
           <Route path="/postEdit/:postId" element={<PostEditPage />} />
           <Route path="/weather" element={<WeatherPage />} />
+          <Route path="/movies" element={<MovieList />} />
+          <Route path="/movie/:movieId" element={<MovieDetail />} />
         </Route>
         
       </Routes>

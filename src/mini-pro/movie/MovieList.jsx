@@ -1,0 +1,53 @@
+import axios from 'axios'
+import React, { useEffect, useRef, useState } from 'react'
+import styled from 'styled-components'
+import MoviePoster from './MoviePoster';
+
+const MovieWrapper = styled.div`
+    width : 500px;
+    margin : 0 auto;
+    display: grid;
+    grid-template-columns : repeat(3, 1fr);
+    cursor: pointer;
+    place-items: center;
+    background-color : lightgrey;
+    padding-top : 10px;
+  }
+`;
+
+function MovieList(props) {
+
+    const movieFetched = useRef(false);
+    const [movies, setMovies] = useState([]);
+
+    async function getMovies() {
+        const response = await axios.get("https://nomad-movies.nomadcoders.workers.dev/movies");
+        setMovies(response.data);
+        console.log(response);
+    }
+
+    useEffect(() => {
+        if(movieFetched.current) return;
+        else movieFetched.current = true;
+    
+        getMovies();
+    }, []);
+
+    return (
+        <MovieWrapper>{
+            movies.map((movie) => {
+                return (
+                    <MoviePoster
+                        movieId={movie.id}
+                        title={movie.title}
+                        poster={movie.poster_path}
+
+                    />
+                )
+            })
+        }
+        </MovieWrapper>
+    )
+}
+
+export default MovieList;
