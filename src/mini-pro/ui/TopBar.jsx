@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    width : 500px;
+    width : 800px;
     margin : 0 auto;
 `
 

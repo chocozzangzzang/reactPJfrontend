@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 const WeatherDiv = styled.div`
-    width : 500px;
+    width : 800px;
     margin : 0 auto;
     flex-direction : column;
     text-align : center;

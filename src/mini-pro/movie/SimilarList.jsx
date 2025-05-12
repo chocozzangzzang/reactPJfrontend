@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import MoviePoster from './MoviePoster';
+import { useParams } from 'react-router-dom';
 
 const MovieWrapper = styled.div`
     width : 100%;
@@ -15,13 +16,15 @@ const MovieWrapper = styled.div`
   }
 `;
 
-function MovieList(props) {
+function SimilarList(props) {
 
     const movieFetched = useRef(false);
     const [movies, setMovies] = useState([]);
+    const { movieId } = useParams();
 
     async function getMovies() {
-        const response = await axios.get("https://nomad-movies.nomadcoders.workers.dev/movies");
+        console.log(movieId);
+        const response = await axios.get(`https://nomad-movies.nomadcoders.workers.dev/movies/${movieId}/similar`);
         setMovies(response.data);
         console.log(response);
     }
@@ -51,4 +54,4 @@ function MovieList(props) {
     )
 }
 
-export default MovieList;
+export default SimilarList;

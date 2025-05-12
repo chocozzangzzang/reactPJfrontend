@@ -12,6 +12,7 @@ import TopBar from "./mini-pro/ui/TopBar";
 import WeatherPage from "./mini-pro/weather/WeatherPage";
 import MovieList from "./mini-pro/movie/MovieList";
 import MovieDetail from "./mini-pro/movie/MovieDetail";
+import SimilarList from "./mini-pro/movie/SimilarList";
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/weather" element={<WeatherPage />} />
           <Route path="/movies" element={<MovieList />} />
           <Route path="/movie/:movieId" element={<MovieDetail />} />
+          <Route path="/movie/:movieId/similars" element={<SimilarList />} />
         </Route>
         
       </Routes>

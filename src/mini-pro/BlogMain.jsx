@@ -8,7 +8,7 @@ import axios from 'axios';
 import PostDeleteContext from './post/PostDeleteContext';
 
 const BtnWrap = styled.div`
-    width : 500px;
+    width : 800px;
     margin : 0 auto;
     margin-bottom : 8px;
     display : flex;
@@ -17,7 +17,7 @@ const BtnWrap = styled.div`
 `;
 
 const Wrapper = styled.div`
-    width : 500px;
+    width : 800px;
     height : 100vh;
     margin : 0 auto;
     text-align : center;

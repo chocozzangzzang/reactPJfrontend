@@ -7,12 +7,12 @@ import SbtBtn from '../ui/SbtBtn';
 import axios from 'axios';
 
 const BtnWrap = styled.div`
-    width : 500px;
+    width : 800px;
     margin : 0 auto;
 `;
 
 const Wrapper = styled.div`
-    width : 500px;
+    width : 800px;
     margin : 0 auto;
     text-align : center;
     padding : 10px;

@@ -9,12 +9,12 @@ import CommDeleteContext from '../comm/CommDeleteContext';
 import CommEditContext from "../comm/CommEditContext";
 
 const BtnWrap = styled.div`
-    width : 500px;
+    width : 800px;
     margin : 0 auto;
 `;
 
 const PostDiv = styled.div`
-    width : 500px;
+    width : 800px;
     margin : 0 auto;
     padding : 10px;
     display : flex;
@@ -43,7 +43,7 @@ const ContentDiv = styled.div`
 `;
 
 const CommentDiv = styled.div`
-    width : 500px;
+    width : 800px;
     height : 100vh;
     margin : 0 auto;
     padding : 10px;
