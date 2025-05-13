@@ -6,15 +6,17 @@ import SbtBtn from '../ui/SbtBtn';
 import axios from 'axios';
 
 const CommsDiv = styled.div`
-    width : 500px;
+    width : 800px;
+    margin : 0 auto;
     display : flex;
     flex-direction : column;
-    gap : 16px;
+    
 `;
 
 const BtnWrap = styled.div`
-    width : 500px;
+    width : 800px;
     margin : 0 auto;
+    margin-top : 20px;   
 `;
 
 function Comments(props) {

@@ -4,22 +4,23 @@ import styled from 'styled-components'
 import MoviePoster from './MoviePoster';
 import { useParams } from 'react-router-dom';
 
-const MovieWrapper = styled.div`
+const SimilarWrapper = styled.div`
     width : 100%;
     margin : 0 auto;
     display: grid;
-    grid-template-columns : repeat(3, 1fr);
+    grid-template-columns : repeat(5, 1fr);
     cursor: pointer;
     place-items: center;
-    background-color : lightgrey;
     padding-top : 10px;
+    height : calc(100vh - 150px);
+    overflow : auto;
   }
 `;
 
 function SimilarList(props) {
 
     const movieFetched = useRef(false);
-    const [movies, setMovies] = useState([]);
+    const [ movies, setMovies] = useState([]);
     const { movieId } = useParams();
 
     async function getMovies() {
@@ -37,7 +38,7 @@ function SimilarList(props) {
     }, []);
 
     return (
-        <MovieWrapper>{
+        <SimilarWrapper>{
             movies.map((movie) => {
                 return (
                     <MoviePoster
@@ -50,7 +51,7 @@ function SimilarList(props) {
                 )
             })
         }
-        </MovieWrapper>
+        </SimilarWrapper>
     )
 }
 

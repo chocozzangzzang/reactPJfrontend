@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const styles = {
     container: {
-      width: '500px',
+      width: '700px',
       margin: '100px auto',
       padding: '20px',
       border: '1px solid #ddd',
@@ -73,7 +73,9 @@ function LoginPage(props) {
             withCredentials: true // 쿠키로 JWT 전송
         },
         ).then((response) => {
-            localStorage.setItem("JWTtoken", response.data);
+            localStorage.setItem("USERname", response.data.username);
+            localStorage.setItem("JWTtoken", response.data.token);
+            localStorage.setItem("USERrole", response.data.role);
             setIsAuthenticated(true);
             setUserName("");
             setPassWord("");

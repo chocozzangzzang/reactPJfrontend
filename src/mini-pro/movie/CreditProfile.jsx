@@ -13,6 +13,13 @@ const TextBox = styled.div`
     height : 50px;
     margin : 0 auto;
     text-align : center;
+    font-weight : 700;
+`
+const TextBox2 = styled.div`
+    width : 120px;
+    height : 50px;
+    margin : 0 auto;
+    text-align : center;
     font-weight : 500;
 `
 
@@ -24,7 +31,7 @@ function CreditProfile(props) {
         <ProfileDiv>
             <img src={profile} alt={originalName}/>
             <TextBox>{originalName}</TextBox>
-            <TextBox>{characterName}</TextBox>
+            <TextBox2>{characterName}</TextBox2>
         </ProfileDiv>
     )
 }

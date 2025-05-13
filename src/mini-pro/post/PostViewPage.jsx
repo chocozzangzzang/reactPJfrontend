@@ -15,8 +15,7 @@ const BtnWrap = styled.div`
 
 const PostDiv = styled.div`
     width : 800px;
-    margin : 0 auto;
-    padding : 10px;
+    margin : 20px auto;
     display : flex;
     flex-direction : column;
     gap : 16px;
@@ -46,10 +45,8 @@ const CommentDiv = styled.div`
     width : 800px;
     height : 100vh;
     margin : 0 auto;
-    padding : 10px;
     display : flex;
     flex-direction : column;
-    gap : 16px;
 `;
 
 function PostViewPage(props) {

@@ -7,11 +7,12 @@ const MovieWrapper = styled.div`
     width : 100%;
     margin : 0 auto;
     display: grid;
-    grid-template-columns : repeat(3, 1fr);
+    grid-template-columns : repeat(5, 1fr);
     cursor: pointer;
     place-items: center;
-    background-color : lightgrey;
     padding-top : 10px;
+    height: calc(100vh - 150px);
+    overflow : auto;
   }
 `;
 

@@ -25,6 +25,8 @@ const Wrapper = styled.div`
     display : flex;
     flex-direction : column;
     gap : 16px;
+    height: calc(100vh - 150px);
+    overflow : auto;
 `;
 
 function BlogMain(props) {

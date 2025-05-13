@@ -13,6 +13,7 @@ import WeatherPage from "./mini-pro/weather/WeatherPage";
 import MovieList from "./mini-pro/movie/MovieList";
 import MovieDetail from "./mini-pro/movie/MovieDetail";
 import SimilarList from "./mini-pro/movie/SimilarList";
+import CreditList from "./mini-pro/movie/CreditList";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="/movies" element={<MovieList />} />
           <Route path="/movie/:movieId" element={<MovieDetail />} />
           <Route path="/movie/:movieId/similars" element={<SimilarList />} />
+          <Route path="/movie/:movieId/credits" element={<CreditList />} />
         </Route>
         
       </Routes>

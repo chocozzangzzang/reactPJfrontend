@@ -5,7 +5,10 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     width : 800px;
+    height: 150px;
     margin : 0 auto;
+    position : fixed;
+    top : 0;
 `
 
 const TtDiv = styled.div`
@@ -29,13 +32,15 @@ const UserDiv = styled.div`
 const TopBar = () => {
     const navigate = useNavigate();
     const login = localStorage.getItem("JWTtoken");
+    const role = localStorage.getItem("USERrole");
+    const username = localStorage.getItem("USERname");
 
     return (
         <Wrapper>
             <UserDiv>
                 {
                     login ?
-                    <h4>User님 환영합니다!</h4>
+                    <h4>{username}님 환영합니다!</h4>
                     : <h4></h4>
                 }
             </UserDiv>
@@ -44,9 +49,16 @@ const TopBar = () => {
                 <MoveButton title="날씨" onClick={() => navigate('/weather')}/>
                 <MoveButton title="최신영화" onClick={() => navigate('/movies')}/>
                 {
+                    role === "[ROLE_ADMIN]" ?
+                    <MoveButton title="회원관리" onClick={() => alert("회원관리탭")} />
+                    : <></>
+                }
+                {
                     login ? 
                     <MoveButton title="로그아웃" onClick={() => {
                         localStorage.removeItem("JWTtoken");
+                        localStorage.removeItem("USERrole");
+                        localStorage.removeItem("USERname");
                         navigate("/login");}}/> 
                     : <MoveButton title="로그인" onClick={() => navigate('/login')}/>
                     

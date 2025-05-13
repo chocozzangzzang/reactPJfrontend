@@ -4,6 +4,12 @@ import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import CreditProfile from './CreditProfile';
 
+const Wrapper = styled.div`
+    width : 800px;
+    height : calc(100vh - 150px);
+    overflow : auto;
+`
+
 const MovieDetailDiv = styled.div`
     width : 800px;
     display : flex;
@@ -88,7 +94,7 @@ function MovieDetail(props) {
     }, [])
     
     return (
-        <>
+        <Wrapper>
             <MovieDetailDiv>
                 {
                     movie ? <>
@@ -126,7 +132,7 @@ function MovieDetail(props) {
                         )
                     }) : <></>
                 }
-                <Link>More Credits &rarr;</Link>
+                <Link to={`/movie/${movieId}/credits`}>More Credits &rarr;</Link>
             </MovieCreditsDiv>
             <TextDiv2>
                 <h3>Trailers</h3>  
@@ -159,7 +165,7 @@ function MovieDetail(props) {
                     }) : <></>
                 }
             </TrailerDiv>
-        </>
+        </Wrapper>
     )
 }
 

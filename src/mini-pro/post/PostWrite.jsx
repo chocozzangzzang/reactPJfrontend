@@ -14,8 +14,8 @@ const BtnWrap = styled.div`
 const Wrapper = styled.div`
     width : 800px;
     margin : 0 auto;
+    margin-bottom : 20px;
     text-align : center;
-    padding : 10px;
     display : flex;
     flex-direction : column;
     gap : 16px;

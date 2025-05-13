@@ -12,6 +12,11 @@ const Poster = styled.div`
     text-align : center;
 `
 
+const TextBox = styled.div`
+    height : 60px;
+    padding-top : 10px;
+`
+
 function MoviePoster(props) {
 
     const { movieId, title, poster } = props;
@@ -20,7 +25,7 @@ function MoviePoster(props) {
     return (
         <Poster onClick={() => navigate(`/movie/${movieId}`)}>
             <img src={poster} alt={title}/>
-            <p>{title}</p>
+            <TextBox>{title}</TextBox>
         </Poster>
     )
 }
