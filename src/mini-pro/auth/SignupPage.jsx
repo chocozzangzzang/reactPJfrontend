@@ -73,7 +73,7 @@ function SignupPage(props) {
                 setPassWord("");
                 setPassWordCheck("");
                 alert("가입되었습니다..!");
-                navigate("/");
+                navigate("/login");
             })
             .catch((error) => alert(error.response.data));
         }

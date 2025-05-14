@@ -16,7 +16,7 @@ const TtDiv = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : space-between;
-    margin-top : 16px;
+    margin-top : 10px;
     margin-bottom : 16px;
     background : #333;
     padding : 12px;
@@ -25,8 +25,18 @@ const TtDiv = styled.div`
 
 const UserDiv = styled.div`
     width : 100%;
-    height : 15px;
-    text-align : right;
+    margin-top : 20px;
+    height : 30px;
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
+    text-align : center;
+`
+
+const Login = styled.p`
+    margin-top : 0;
+    display: inline-block;
+    font-weight : 700;
 `
 
 const TopBar = () => {
@@ -38,10 +48,11 @@ const TopBar = () => {
     return (
         <Wrapper>
             <UserDiv>
+                <button onClick={() => navigate(-1)}>뒤로가기</button>
                 {
                     login ?
-                    <h4>{username}님 환영합니다!</h4>
-                    : <h4></h4>
+                    <Login>{username}님 환영합니다!</Login>
+                    : <Login></Login>
                 }
             </UserDiv>
             <TtDiv> 
@@ -50,7 +61,7 @@ const TopBar = () => {
                 <MoveButton title="최신영화" onClick={() => navigate('/movies')}/>
                 {
                     role === "[ROLE_ADMIN]" ?
-                    <MoveButton title="회원관리" onClick={() => alert("회원관리탭")} />
+                    <MoveButton title="회원관리" onClick={() => navigate('/manage')} />
                     : <></>
                 }
                 {
